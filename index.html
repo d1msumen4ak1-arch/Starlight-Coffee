@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Starlight Coffee — Coffee Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Starlight Coffee</h1>
+      <p class="tag">Kopi nyaman — makanan lezat — pesan online</p>
+      <nav>
+        <button id="btn-open-add">Tambah Produk</button>
+        <button id="btn-open-cart">Keranjang (<span id="cart-count">0</span>)</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="menu">
+      <h2>Menu Kami</h2>
+      <div id="products" class="product-grid"></div>
+    </section>
+
+    <section class="about">
+      <h3>Tentang Starlight Coffee</h3>
+      <p>Tempat ngopi nyaman dengan pilihan minuman dan makanan yang dibuat segar. Anda bisa menambah produk baru lewat form "Tambah Produk", dan memesan langsung lewat fitur keranjang.</p>
+    </section>
+  </main>
+
+  <!-- Add Product Modal -->
+  <div id="modal-add" class="modal hidden">
+    <div class="modal-content">
+      <h3>Tambah Produk Baru</h3>
+      <form id="form-add">
+        <label>Nama Produk<input required name="name"/></label>
+        <label>Harga (angka saja)<input required name="price" type="number" min="0" step="1"/></label>
+        <label>Deskripsi<textarea required name="desc"></textarea></label>
+        <label>URL Gambar (contoh: images/latte.jpg)<input required name="img"/></label>
+        <div class="actions">
+          <button type="submit">Simpan</button>
+          <button type="button" id="btn-cancel-add">Batal</button>
+        </div>
+      </form>
+      <p class="hint">Catatan: letakkan file gambar di folder <code>/images/</code> atau berikan URL gambar publik.</p>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="modal-cart" class="modal hidden">
+    <div class="modal-content">
+      <h3>Keranjang</h3>
+      <div id="cart-list"></div>
+      <div class="cart-actions">
+        <div id="cart-total">Total: Rp 0</div>
+        <button id="btn-checkout">Pesan Sekarang</button>
+        <button id="btn-close-cart">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> Starlight Coffee — All rights reserved</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
